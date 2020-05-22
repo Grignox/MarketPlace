@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "659075743633",
+    "firebase_url": "https://marketplace-35e20.firebaseio.com",
+    "project_id": "marketplace-35e20",
+    "storage_bucket": "marketplace-35e20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659075743633:android:6f7d8bffff2d00238e2430",
+        "android_client_info": {
+          "package_name": "com.marketplace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659075743633-4790beaeo5r6nm2cpdl2u37p9brv0bau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4rVxwk34ATzyXciz2OLj1N85-xYCUbyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659075743633-4790beaeo5r6nm2cpdl2u37p9brv0bau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
