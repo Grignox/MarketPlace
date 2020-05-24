@@ -1,24 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {View, TextInput, Text, StyleSheet} from 'react-native';
 import ButtonConnexion from '../Components/ButtonConnexion';
-import { pink, white } from 'color-name';
+import auth from '@react-native-firebase/auth';
 
-function FormConnexion(){
+function Auth() {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
 
-    return(
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  if (initializing) return null;
+
+  if (!user) {
+    return (
         <View style={Styles.MainContainer}>
-            <View style={Styles.form}>
-                <Text style={Styles.formTitle}>
-                    Se connecter
-                </Text>
-                <TextInput style={Styles.formInput} placeholder='Adresse e-mail' />
-                <TextInput style={Styles.formInput} placeholder='Mot de passe' />
-                <ButtonConnexion style={Styles.formButton}/>
-            </View>
+        <View style={Styles.form}>
+            <Text style={Styles.formTitle}>
+                Se connecter
+            </Text>
+            <TextInput style={Styles.formInput} placeholder='Adresse e-mail' />
+            <TextInput style={Styles.formInput} placeholder='Mot de passe' />
+            <ButtonConnexion style={Styles.formButton}/>
         </View>
-    )
+    </View>
+    );
+  }
 
+  return (
+    <View>
+      <Text>Welcome {user.email}</Text>
+    </View>
+  );
 }
+
+
+// function FormConnexion(){
+
+//     return(
+//         <View style={Styles.MainContainer}>
+//             <View style={Styles.form}>
+//                 <Text style={Styles.formTitle}>
+//                     Se connecter
+//                 </Text>
+//                 <TextInput style={Styles.formInput} placeholder='Adresse e-mail' />
+//                 <TextInput style={Styles.formInput} placeholder='Mot de passe' />
+//                 <ButtonConnexion style={Styles.formButton}/>
+//             </View>
+//         </View>
+//     )
+
+// }
 
 const Styles = StyleSheet.create({
     MainContainer: {
@@ -53,4 +94,4 @@ const Styles = StyleSheet.create({
   
 })
 
-export default FormConnexion;
+export default Auth;

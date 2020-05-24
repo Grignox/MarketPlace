@@ -15,6 +15,9 @@ def add_flipper_pods!(versions = {})
   pod 'FlipperKit/FlipperKitUserDefaultsPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitReactPlugin', versions['Flipper'], :configuration => 'Debug'
 
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+
   # List all transitive dependencies for FlipperKit pods
   # to avoid them being linked in Release builds
   pod 'Flipper', versions['Flipper'], :configuration => 'Debug'
@@ -76,6 +79,10 @@ target 'Marketplace' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
+  
+    pod 'RNFBAuth', :path => '../node_modules/@react-native-firebase/auth'
+ 
 
   target 'MarketplaceTests' do
     inherit! :complete
