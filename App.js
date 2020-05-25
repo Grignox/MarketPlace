@@ -17,7 +17,7 @@ const App: () => React$Node = () => {
   return (
     <>
      <Header/>
-     <FormConnexion/>
+     <FormInscription/>
     </>
   );
 };

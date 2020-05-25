@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
-import ButtonConnexion from '../Components/ButtonConnexion';
 
 export default class FormInscription extends React.Component {
     render() {
