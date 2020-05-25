@@ -8,6 +8,7 @@
 
 import React from 'react';
 import FormConnexion from './Components/FormConnexion';
+import FormInscription from './Components/FormInscription';
 
 
 import Header from './Components/Header';
