@@ -1,18 +1,28 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
+import auth from '@react-native-firebase/auth';
 
-function ButtonConnexion(){
 
+
+ class ButtonDeconnexion extends React.Component{
+     _deconnect(){
+        auth()
+    .signOut()
+    .then(() => console.log('User signed out!'));
+    };
+
+    render(){
     return(
         <View style={Styles.buttonContainer}>
             <TouchableOpacity
             style = {Styles.button}
-            onPress={() => {}} 
+            onPress={() => this._deconnect()}
              >
-          <Text style={Styles.formButton}>Connexion</Text>
+          <Text style={Styles.formButton}>Se déconnecter</Text>
         </TouchableOpacity>
         </View>
     )
+    }
 }
 const Styles = StyleSheet.create({
    
@@ -33,4 +43,4 @@ const Styles = StyleSheet.create({
 
 })
 
-export default ButtonConnexion;
+export default ButtonDeconnexion;
