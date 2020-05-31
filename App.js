@@ -7,7 +7,12 @@
  */
 
 import React from 'react';
+
 import Home from './Components/home';
+
+import FormConnexion from './Components/FormConnexion';
+import FormInscription from './Components/FormInscription';
+
 
 
 import Header from './Components/Header';
@@ -16,6 +21,7 @@ const App: () => React$Node = () => {
   return (
     <>
      <Header/>
+
      <Home/>
     </>
   );
