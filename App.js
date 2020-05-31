@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import FormConnexion from './Components/FormConnexion';
+import Home from './Components/home';
 
 
 import Header from './Components/Header';
@@ -16,7 +16,7 @@ const App: () => React$Node = () => {
   return (
     <>
      <Header/>
-     <FormConnexion/>
+     <Home/>
     </>
   );
 };
