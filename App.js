@@ -12,6 +12,7 @@ import Home from './Components/home';
 
 import FormConnexion from './Components/FormConnexion';
 import FormInscription from './Components/FormInscription';
+import Loading from './Components/Loading';
 
 
 
@@ -20,9 +21,9 @@ import Header from './Components/Header';
 const App: () => React$Node = () => {
   return (
     <>
-     <Header/>
+    <Loading/>
 
-     <Home/>
+
     </>
   );
 };
