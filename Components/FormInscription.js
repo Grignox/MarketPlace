@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from '@react-native-firebase';
+import firebase from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 
