@@ -30,7 +30,7 @@ function Auth() {
   if (!user) {
       
     return (
-       <FormConnexion/>
+       this.props.navigation.navigate('formConnexion')
     );
   }
 

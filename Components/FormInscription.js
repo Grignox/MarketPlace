@@ -3,13 +3,13 @@ import firebase from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 
-export default class FormInscription extends React.Component {
+class FormInscription extends React.Component {
     state = { prenom: '', nom: '', pseudo: '', email: '', password: '', ville: '', sexe: '', age: '', errorMessage: null}
     handleFormInscription = () => {
-        firebase
-        .auth()
+        
+        auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => this.props.navigation.navigate('App'))
+        .then(() => this.props.navigation.navigate('FormConnexion'))
         .catch(error => this.setState({ errorMessage: error.message }))
         console.log('handleFormInscription')
     }
@@ -125,3 +125,5 @@ const styles = StyleSheet.create({
         textAlign: "center",
     }
 });
+
+export default FormInscription;
