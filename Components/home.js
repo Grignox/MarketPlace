@@ -36,7 +36,7 @@ function Auth() {
 
   return (
     <View>
-      <Text>Welcome {user.email}</Text>
+      <Text>Wesh la mif bien ou quoi? Viens on se met doux à la fin de ce projet {user.email}</Text>
       <ButtonDeconnexion/>
     </View>
   );

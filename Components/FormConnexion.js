@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {View, TextInput, Text, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
 import ButtonConnexion from '../Components/ButtonConnexion';
 import auth from '@react-native-firebase/auth';
+import { red } from 'ansi-colors';
 
 class FormConnexion extends React.Component{
     constructor(props) {
@@ -21,10 +22,10 @@ class FormConnexion extends React.Component{
       
     const Password = this.state.connectPassword;
     const Email = this.state.connectEmail;
-    console.log(Email);
+    console.log(Email.connectEmail);
     console.log(Password);
     auth()
-    .signInWithEmailAndPassword(this.state.connectEmail, this.state.connectPassword)
+    .signInWithEmailAndPassword(Email.connectEmail,Password.connectPassword)
     .then(() => {
       console.log('User signed in!');
     })
@@ -33,15 +34,9 @@ class FormConnexion extends React.Component{
         console.log('That email address is already in use!');
       }
   
-      if (error.code === 'auth/invalid-email') {
-        console.log('That email address is invalid!');
-      }
-  
-      console.error(error);
-    });
-};
-    render() {
+      if (error.code === 'auth/invalid-email' || error.code === 'auth/wrong-password'){
         const image = { uri: "https://images.pexels.com/photos/853151/pexels-photo-853151.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" };
+        console.log('impossible de se connecter');
         
         return (
             <View style={Styles.MainContainer}>
@@ -50,12 +45,16 @@ class FormConnexion extends React.Component{
                     <Text style={Styles.BannerText} >Bienvenue chez Marketplace</Text>
                 </ImageBackground>
             </View>
+            <View>
+                <Text style={Styles.errorAuth}>L'adresse email que vous avez taper ou le mot de passe est incorrect</Text>
+            </View>
             <View style={Styles.FormContainer}>
                 <View style={Styles.Allform}>
                     <Text style={Styles.formTitle}>
                         Se connecter
                     </Text>
                     <View style={Styles.form}>
+                        
                         <TextInput style=
                         {Styles.formInput} 
                         placeholder='Adresse e-mail'
@@ -74,6 +73,49 @@ class FormConnexion extends React.Component{
                     </View>
                 </View>
             </View>
+        </View> 
+        )
+      }
+  
+      console.error(error);
+    });
+};
+    render() {
+        const image = { uri: "https://images.pexels.com/photos/853151/pexels-photo-853151.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" };
+        
+        return (
+            <View style={Styles.MainContainer}>
+                <View style={Styles.BanerContainer}>
+                    <ImageBackground source={image} style={Styles.image}>
+                        <Text style={Styles.BannerText} >Bienvenue chez Marketplace</Text>
+                    </ImageBackground>
+                </View>
+                <View style={Styles.FormContainer}>
+                    <View style={Styles.Allform}>
+                        <Text style={Styles.formTitle}>
+                            Se connecter
+                        </Text>
+                        <View style={Styles.form}>
+                            <Text style={Styles.inputTitles}>E-mail</Text>
+                            <TextInput style=
+                            {Styles.formInput} 
+                            placeholder='Adresse e-mail'
+                            onChangeText={(connectEmail) => this._connexionEmailInputChange({connectEmail})}
+                        />
+                            <Text style={Styles.inputTitles}>Mot de passe</Text>
+                            <TextInput style={Styles.formInput}
+                            secureTextEntry={true}
+                            placeholder='Mot de passe'
+                            onChangeText={(connectPassword) => this._connexionPasswordInputChange({connectPassword})} />
+                            <TouchableOpacity
+                                style = {Styles.button}
+                                onPress={() => this._connect()}
+                                >
+                            <Text style={Styles.formButton}>Connexion</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
         </View> 
         )
     }
@@ -124,6 +166,10 @@ const Styles = StyleSheet.create({
         textAlign: "center",
         backgroundColor: 'white'
     },
+    inputTitles:{
+        color:'white',
+        marginBottom: 10
+    },
     Allform:{
         backgroundColor: '#012941',
         paddingLeft : 50,
@@ -146,7 +192,12 @@ const Styles = StyleSheet.create({
         width: 100,
         textAlign: "center"
 
+    },
+    errorAuth:{
+
+        color: 'red'
     }
+    
 
   
 })
