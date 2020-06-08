@@ -4,12 +4,14 @@ import auth from '@react-native-firebase/auth';
 
 
 
- class ButtonDeconnexion extends React.Component{
+ class buttonDeconnexion extends React.Component{
      _deconnect(){
         auth()
     .signOut()
     .then(() => console.log('User signed out!'));
+    this.props.navigation.navigate('FormConnexion');
     };
+    
 
     render(){
     return(
@@ -43,4 +45,4 @@ const Styles = StyleSheet.create({
 
 })
 
-export default ButtonDeconnexion;
+export default buttonDeconnexion;

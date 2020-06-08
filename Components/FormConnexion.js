@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {View, TextInput, Text, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
-
-
-
 import auth from '@react-native-firebase/auth';
 
 
@@ -33,7 +30,7 @@ class FormConnexion extends React.Component{
     .signInWithEmailAndPassword(Email.connectEmail,Password.connectPassword)
     .then(() => {
       console.log('User signed in!');
-      this.props.navigation.navigate('Home')
+      this.props.navigation.navigate('Enchere')
     })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
@@ -91,7 +88,7 @@ class FormConnexion extends React.Component{
 
     render() {
         const image = { uri: "https://images.pexels.com/photos/853151/pexels-photo-853151.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" };
-        const {_displayInscriptionForm} = this.props
+       
         return (
             <View style={Styles.MainContainer}>
                 <View style={Styles.BanerContainer}>
