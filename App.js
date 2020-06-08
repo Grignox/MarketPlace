@@ -11,10 +11,10 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FormConnexion from './Components/FormConnexion';
-import FormInscription from './Components/FormInscription'
-import Header from './Components/Header'
-import Home from './Components/home'
-
+import FormInscription from './Components/FormInscription';
+import Header from './Components/Header';
+import Home from './Components/home';
+import CreateAuction from './Components/CreateAuction';
 
 
 export default class App extends React.Component {
@@ -26,7 +26,7 @@ export default class App extends React.Component {
         <Stack.Navigator screenOptions={{ headerShown: false}} >
           <Stack.Screen
           name="FormInscription"
-          component={FormInscription}
+          component={CreateAuction}
           />
           <Stack.Screen
             name="FormConnexion"

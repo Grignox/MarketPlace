@@ -58,7 +58,7 @@ class FormInscription extends React.Component {
                         underlineColorAndroid={'transparent'}
                         onChangeText={ville => this.setState({ ville })}
                         value={this.state.ville}/>
-                    <TextInput 
+                    <TextInput
                         style={styles.textinput} 
                         placeholder="Sexe"
                         underlineColorAndroid={'transparent'}
