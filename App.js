@@ -10,12 +10,6 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FormConnexion from './Components/FormConnexion';
-<<<<<<< HEAD
-import FormInscription from './Components/FormInscription';
-import Header from './Components/Header';
-import Home from './Components/home';
-import CreateAuction from './Components/CreateAuction';
-=======
 import FormInscription from './Components/FormInscription'
 import Header from './Components/Header'
 import Home from './Components/home'
@@ -27,7 +21,6 @@ function App() {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
->>>>>>> 28488e3015ed8dfb33c4a41b0eaa123eb9e91f88
 
   
 
@@ -57,7 +50,7 @@ function App() {
           />
           <Stack.Screen
           name="FormInscription"
-          component={CreateAuction}
+          component={FormInscription}
           />
           <Stack.Screen
           name="Enchere"

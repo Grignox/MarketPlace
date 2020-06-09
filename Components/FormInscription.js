@@ -77,7 +77,7 @@ class FormInscription extends React.Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('FormConnexion')}>
-                        <Text>Already have an account? Login</Text>
+                        <Text>Déjà un compte? Connectez-vous !</Text>
                     </TouchableOpacity>  
                 </View>
             </View>
